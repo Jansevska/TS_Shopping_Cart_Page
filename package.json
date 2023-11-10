@@ -1,0 +1,31 @@
+{
+  "name": "ts_shop_cart_page",
+  "version": "1.0.0",
+  "description": "TypeScript Shopping Cart Page",
+  "main": "index.js",
+  "scripts": {
+    "start": "tsc && node ./dist/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jansevska/TS_Shopping_Cart_Page.git"
+  },
+  "keywords": [
+    "TypeScript",
+    "shopping",
+    "cart"
+  ],
+  "author": "Emili Janchevis/Jansevska",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jansevska/TS_Shopping_Cart_Page/issues"
+  },
+  "homepage": "https://github.com/Jansevska/TS_Shopping_Cart_Page#readme",
+  "devDependencies": {
+    "@types/uuid": "^9.0.7",
+    "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "uuid": "^9.0.1"
+  }
+}
