@@ -7,28 +7,17 @@
     <link rel="stylesheet" href="main.css">
 </head>
 <body>
-    <nav class="navbar">
-        <div class="nav">
-            <img src="img/dark-logo.png" class="brand-logo" alt="">
-            <div class="nav-items">
-                <div class="search">
-                    <input type="text" class="search-box" placeholder="search brand, product">
-                    <button class="search-btn">search</button>
-                </div>
-                <a href="#"><img src="img/user.png" alt=""></a>
-                <a href="#"><img src="img/cart.png" alt=""></a>
-            </div>
+    <nav class="navbar mb-5"></nav>
+
+    <!-- hero section -->
+    <header class="hero-section">
+        <div class="content">
+            <img src="./img/light-logo.png" class="logo" alt="">
+            <!-- <p class="sub-heading">best fashion collection of all time</p> -->
         </div>
-        <ul class="links-container">
-            <li class="link-item"><a href="#" class="link">home</a></li>
-            <li class="link-item"><a href="#" class="link">women</a></li>
-            <li class="link-item"><a href="#" class="link">men</a></li>
-            <li class="link-item"><a href="#" class="link">kids</a></li>
-            <li class="link-item"><a href="#" class="link">accessories</a></li>
-        </ul>
-        </nav>
-    <div class="col-12 text-center mt-5 mb-5">
-        <h3>Please Login Your Name and Age to Start Shopping</h3>
+    </header>
+    <div class="userLogin col-12 text-center mt-5 mb-5">
+        <h2>Please Login Your Name and Age to Start Shopping</h2>
 
         <form action="" id="addUser">
             <input type="text" name="userName" id="usertName">
@@ -36,10 +25,82 @@
             <input type="submit" value="Start Shopping">
         </form>
 
-        <table id="studentDisplay">
-        </table>
+        <table id="userDisplay"></table>
+
+        <!-- cards-container -->
+        <section class="product">
+            <h2 class="product-category">best selling</h2>
+            <button class="pre-btn"><img src="img/arrow.png" alt=""></button>
+            <button class="nxt-btn"><img src="img/arrow.png" alt=""></button>
+            <div class="product-container">
+                <div class="product-card">
+                    <div class="product-image">
+                        <!-- <span class="discount-tag">50% off</span> -->
+                        <img src="./card1.png" class="product-thumb" alt="">
+                        <button class="card-btn">add to cart</button>
+                    </div>
+                    <div class="product-info">
+                        <h2 class="product-brand">brand</h2>
+                        <p class="product-short-des">a short line about the cloth..</p>
+                        <span class="price">$20</span><span class="actual-price">$40</span>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <!-- <span class="discount-tag">50% off</span> -->
+                        <img src="img/card2.png" class="product-thumb" alt="">
+                        <button class="card-btn">add to cart</button>
+                    </div>
+                    <div class="product-info">
+                        <h2 class="product-brand">brand</h2>
+                        <p class="product-short-des">a short line about the cloth..</p>
+                        <span class="price">$20</span><span class="actual-price">$40</span>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <!-- <span class="discount-tag">50% off</span> -->
+                        <img src="img/card3.png" class="product-thumb" alt="">
+                        <button class="card-btn">add to cart</button>
+                    </div>
+                    <div class="product-info">
+                        <h2 class="product-brand">brand</h2>
+                        <p class="product-short-des">a short line about the cloth..</p>
+                        <span class="price">$20</span><span class="actual-price">$40</span>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <!-- <span class="discount-tag">50% off</span> -->
+                        <img src="img/card4.png" class="product-thumb" alt="">
+                        <button class="card-btn">add to cart</button>
+                    </div>
+                    <div class="product-info">
+                        <h2 class="product-brand">brand</h2>
+                        <p class="product-short-des">a short line about the cloth..</p>
+                        <span class="price">$20</span><span class="actual-price">$40</span>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <!-- <span class="discount-tag">50% off</span> -->
+                        <img src="img/card5.png" class="product-thumb" alt="">
+                        <button class="card-btn">add to cart</button>
+                    </div>
+                    <div class="product-info">
+                        <h2 class="product-brand">brand</h2>
+                        <p class="product-short-des">a short line about the cloth..</p>
+                        <span class="price">$20</span><span class="actual-price">$40</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </div>
 
+
+    <script src="js/home.js"></script>
+    <script src="nav.js"></script>
     <script src="bundle.js"></script>
 </body>
 </html>

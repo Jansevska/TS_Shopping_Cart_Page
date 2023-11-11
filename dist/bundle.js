@@ -282,6 +282,11 @@ class User {
     addToCart(item) {
         this.cart.push(item);
     }
+    createElement() {
+        let row = document.createElement('tr');
+        row.innerHTML = `<td>${this.name}</td><td>${this.age}</td>`;
+        return row;
+    }
     removeFromCart(itemToRemove) {
         this.cart = this.cart.filter(item => item.id !== itemToRemove.id);
     }
@@ -307,7 +312,8 @@ class User {
     }
 }
 class Shop {
-    constructor(_items = []) {
+    constructor(_user, _items = []) {
+        this._user = _user;
         this._items = _items;
         let itemA = new Item('Notebook', 10.99, 'White cover, spiral, 100 pages');
         this.items.push(itemA);
@@ -322,9 +328,39 @@ class Shop {
     set items(value) {
         this._items = value;
     }
+    get user() {
+        if (this._user) {
+            return this._user;
+        }
+    }
+    set user(value) {
+        this._user = value;
+    }
+    displayUsers() {
+        if (!this.user)
+            return;
+        const table = document.getElementById('userDisplay');
+        table.innerHTML = '';
+        let tr = document.createElement('tr');
+        tr.innerHTML = '<th>name</th><th>age</th>';
+        table === null || table === void 0 ? void 0 : table.append(tr);
+        table === null || table === void 0 ? void 0 : table.insertAdjacentElement("beforeend", this.user.createElement());
+    }
 }
-// Driver Code
 let myShop = new Shop();
+const userForm = document.getElementById('addUser');
+userForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const name = form.userName.value;
+    const age = form.userAge.value;
+    myShop.user = new User(name, age);
+    console.log(myShop);
+    myShop.displayUsers();
+    form.userNamevalue = '';
+    form.userAge.value = '';
+});
+// Driver Code
 let myUser = new User('Alice', 68);
 console.log(myShop);
 console.log(myUser);

@@ -74,6 +74,12 @@ class User {
         this.cart.push(item)
     }
 
+    public createElement():HTMLTableRowElement{
+        let row = document.createElement('tr');
+        row.innerHTML = `<td>${this.name}</td><td>${this.age}</td>`
+        return row;
+    }
+
     public removeFromCart(itemToRemove:Item):void{
         this.cart = this.cart.filter( item => item.id !== itemToRemove.id)
     }
@@ -103,7 +109,9 @@ class User {
 }
 
 class Shop {
+
     constructor(
+        private _user?: User,
         private _items: Item[] = []
     ){
         let itemA = new Item('Notebook', 10.99, 'White cover, spiral, 100 pages');
@@ -121,11 +129,48 @@ class Shop {
     public set items(value: Item[]) {
         this._items = value;
     }
+    public get user(): User | void{
+        if (this._user){
+            return this._user;
+        }
+    }
+    public set user(value: User) {
+        this._user = value;
+    }
+
+    displayUsers():void{
+        if (!this.user) return 
+        const table = document.getElementById('userDisplay');
+        table!.innerHTML = '';
+        let tr = document.createElement('tr');
+        tr.innerHTML = '<th>name</th><th>age</th>'
+        table?.append(tr)
+        table?.insertAdjacentElement("beforeend" ,this.user.createElement())
+        }
 }
 
 
-// Driver Code
 let myShop = new Shop();
+
+const userForm = document.getElementById('addUser') as HTMLFormElement;
+userForm.addEventListener('submit', (e:SubmitEvent) => {
+    e.preventDefault();
+    const form = e.target as HTMLFormElement;
+    const name = form.userName.value;
+    const age = form.userAge.value;
+    myShop.user = new User(name, age)
+    console.log(myShop);
+    myShop.displayUsers();
+    form.userNamevalue = '';
+    form.userAge.value = '';
+})
+
+
+
+
+
+
+// Driver Code
 let myUser = new User('Alice', 68);
 console.log(myShop)
 console.log(myUser)
