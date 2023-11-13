@@ -7,25 +7,54 @@
     <link rel="stylesheet" href="main.css">
 </head>
 <body>
-    <nav class="navbar mb-5"></nav>
+    <nav class="navbar mb-5">
+        <div class="nav">
+            <img src="img/dark-logo.png" class="brand-logo" alt="clothing logo">
+            <div class="nav-items">
+                <div class="search">
+                    <input type="text" class="search-box" placeholder="search brand, product">
+                    <button class="search-btn">search</button>
+                </div>
+                <a href="#"><img src="img/user.png" alt=""></a>
+                <a href="#"><img src="img/cart.png" alt=""></a>
+            </div>
+        </div>
+        <ul class="links-container">
+            <li class="link-item"><a href="#" class="link" name="home">home</a></li>
+            <li class="link-item"><a href="#" class="link" name="cart">cart</a></li>
+        </ul>
+    </nav>
 
-    <!-- hero section -->
-    <header class="hero-section">
-        <div class="content">
-            <img src="./img/light-logo.png" class="logo" alt="">
-            <!-- <p class="sub-heading">best fashion collection of all time</p> -->
+    <header>
+        <!-- userLogin section is-visible -->
+        <div class="login" id="home">
+            <div class="userLogin col-12 text-center mt-5 mb-5">
+                <h2>Please Login Your Name and Age to Start Shopping</h2>
+        
+                <form action="" >
+                    <input type="text" class="form-box-name" name="userName" id="nameInput" placeholder="name">
+                    <input type="text" clas="form-box-age" name="userAge" id="ageInput" placeholder="age">
+                    <input type="submit" id="addUser" class="form-btn" value="Log In">
+                    <!-- <button type="submit" class="form-btn">Login</button> -->
+                </form>
+        
+                <table id="userDisplay"></table>
+        </div>
+
+        <div id="shop" style="visibility: visible;">
+
+        </div>
+        <!-- cart section is-invisible-->
+        <div class="cart-section">
+            <h2 id="cart-header">My Cart</h2>
+            <div class="content" id="cart-div">
+                <div class="cart">
+                    <table id="itemDisplay"></table>
+                </div>
+            </div>
         </div>
     </header>
-    <div class="userLogin col-12 text-center mt-5 mb-5">
-        <h2>Please Login Your Name and Age to Start Shopping</h2>
 
-        <form action="" id="addUser">
-            <input type="text" name="userName" id="usertName">
-            <input type="text" name="userAge" id="userAge">
-            <input type="submit" value="Start Shopping">
-        </form>
-
-        <table id="userDisplay"></table>
 
         <!-- cards-container -->
         <section class="product">
@@ -35,9 +64,8 @@
             <div class="product-container">
                 <div class="product-card">
                     <div class="product-image">
-                        <!-- <span class="discount-tag">50% off</span> -->
-                        <img src="./card1.png" class="product-thumb" alt="">
-                        <button class="card-btn">add to cart</button>
+                        <img src="img/card1.png" class="product-thumb" alt="">
+                        <button class="card-btn" id="addToCart">add to cart</button>
                     </div>
                     <div class="product-info">
                         <h2 class="product-brand">brand</h2>
@@ -47,7 +75,6 @@
                 </div>
                 <div class="product-card">
                     <div class="product-image">
-                        <!-- <span class="discount-tag">50% off</span> -->
                         <img src="img/card2.png" class="product-thumb" alt="">
                         <button class="card-btn">add to cart</button>
                     </div>
@@ -59,7 +86,6 @@
                 </div>
                 <div class="product-card">
                     <div class="product-image">
-                        <!-- <span class="discount-tag">50% off</span> -->
                         <img src="img/card3.png" class="product-thumb" alt="">
                         <button class="card-btn">add to cart</button>
                     </div>
@@ -71,7 +97,6 @@
                 </div>
                 <div class="product-card">
                     <div class="product-image">
-                        <!-- <span class="discount-tag">50% off</span> -->
                         <img src="img/card4.png" class="product-thumb" alt="">
                         <button class="card-btn">add to cart</button>
                     </div>
@@ -83,7 +108,6 @@
                 </div>
                 <div class="product-card">
                     <div class="product-image">
-                        <!-- <span class="discount-tag">50% off</span> -->
                         <img src="img/card5.png" class="product-thumb" alt="">
                         <button class="card-btn">add to cart</button>
                     </div>
@@ -99,8 +123,7 @@
     </div>
 
 
-    <script src="js/home.js"></script>
-    <script src="nav.js"></script>
+
     <script src="bundle.js"></script>
 </body>
 </html>

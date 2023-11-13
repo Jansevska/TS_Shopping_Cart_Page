@@ -34,9 +34,17 @@ class Item {
     public set id(value: string) {
         this._id = value;
     }
-}
+
 
 class User {
+
+    static createUser(name:string, age:number): User{
+        document.getElementById('cart')!.style.visibility="visible";
+        document.getElementById('home')!.style.visibility="hidden";
+        const newUser = new User(name, age);
+        console.log(newUser)
+        return newUser;
+    }
 
     constructor(
         private _name: string,
@@ -71,17 +79,11 @@ class User {
     }
 
     public addToCart(item:Item):void{
-        this.cart.push(item)
-    }
-
-    public createElement():HTMLTableRowElement{
-        let row = document.createElement('tr');
-        row.innerHTML = `<td>${this.name}</td><td>${this.age}</td>`
-        return row;
+        this.cart.push(item);
     }
 
     public removeFromCart(itemToRemove:Item):void{
-        this.cart = this.cart.filter( item => item.id !== itemToRemove.id)
+        this.cart = this.cart.filter( item => item.id !== itemToRemove.id);
     }
 
     public removeQuantityFromCart(itemToRemove:Item, quantity:number):void{
@@ -106,66 +108,54 @@ class User {
         }
         console.log(`Total: $${this.getCartTotal()}`)
     }
+
 }
 
+
 class Shop {
+    static myUser:User;
 
     constructor(
-        private _user?: User,
         private _items: Item[] = []
     ){
-        let itemA = new Item('Notebook', 10.99, 'White cover, spiral, 100 pages');
-        this.items.push(itemA);
+        let item1 = new Item('Floral Dress', 49.99, 'Pale Green and pink floral, long with short sleeves');
+        this.items.push(item1);
 
-        let itemB = new Item('pens', 11.99, '6-pack pilot gel black');
-        this.items.push(itemB);
+        let item2 = new Item('pants', 39.99, 'cotton light gray short pants');
+        this.items.push(item2);
 
-        let itemC = new Item('Post-it', 7.99, 'Small colorful post-it');
-        this.items.push(itemC);
+        let item3 = new Item('sweatshirt and pants combo', 67.99, "Men's Sand color combo of sweatshirt and pants");
+        this.items.push(item3);
+
+        let item4 = new Item('Cocktail Dress', 79.99, 'Red Cocktail Short Dress');
+        this.items.push(item4);
+
+        let item5 = new Item('Dress Shirt', 41.99, "Black Men's Dress Shirt");
+        this.items.push(item5);
     }
+
+
     public get items(): Item[] {
         return this._items;
     }
     public set items(value: Item[]) {
         this._items = value;
     }
-    public get user(): User | void{
-        if (this._user){
-            return this._user;
-        }
-    }
-    public set user(value: User) {
-        this._user = value;
-    }
 
-    displayUsers():void{
-        if (!this.user) return 
-        const table = document.getElementById('userDisplay');
-        table!.innerHTML = '';
-        let tr = document.createElement('tr');
-        tr.innerHTML = '<th>name</th><th>age</th>'
-        table?.append(tr)
-        table?.insertAdjacentElement("beforeend" ,this.user.createElement())
-        }
+    static loginUser(e:Event) {
+        e.preventDefault();
+        const name = document.getElementById('nameInput') as HTMLInputElement;
+        const age = document.getElementById('ageInput') as HTMLInputElement;
+        Shop.myUser = User.createUser(name.value, parseInt(age.value));
+    }
 }
 
 
 let myShop = new Shop();
 
-const userForm = document.getElementById('addUser') as HTMLFormElement;
-userForm.addEventListener('submit', (e:SubmitEvent) => {
-    e.preventDefault();
-    const form = e.target as HTMLFormElement;
-    const name = form.userName.value;
-    const age = form.userAge.value;
-    myShop.user = new User(name, age)
-    console.log(myShop);
-    myShop.displayUsers();
-    form.userNamevalue = '';
-    form.userAge.value = '';
-})
 
-
+// Add new User event listener
+document.getElementById('addUser')!.addEventListener('click', (e:Event)=> Shop.loginUser(e))
 
 
 
