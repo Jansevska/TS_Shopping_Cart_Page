@@ -34,16 +34,17 @@ class Item {
     public set id(value: string) {
         this._id = value;
     }
-
+}
 
 class User {
 
-    static createUser(name:string, age:number): User{
-        document.getElementById('cart')!.style.visibility="visible";
-        document.getElementById('home')!.style.visibility="hidden";
-        const newUser = new User(name, age);
-        console.log(newUser)
-        return newUser;
+    static createUser(){
+        const name = document.getElementById('nameInput') as HTMLFormElement;
+        const age = document.getElementById('ageInput') as HTMLFormElement;
+        // document.getElementById('cart')!.style.visibility="visible";
+        // document.getElementById('home')!.style.visibility="hidden";
+        console.log(new User(name.value, age.value));
+        return new User(name.value, age.value);
     }
 
     constructor(
@@ -144,23 +145,12 @@ class Shop {
 
     static loginUser(e:Event) {
         e.preventDefault();
-        const name = document.getElementById('nameInput') as HTMLInputElement;
-        const age = document.getElementById('ageInput') as HTMLInputElement;
-        Shop.myUser = User.createUser(name.value, parseInt(age.value));
+        Shop.myUser = User.createUser();
     }
 }
 
-
-let myShop = new Shop();
 
 
 // Add new User event listener
 document.getElementById('addUser')!.addEventListener('click', (e:Event)=> Shop.loginUser(e))
 
-
-
-
-// Driver Code
-let myUser = new User('Alice', 68);
-console.log(myShop)
-console.log(myUser)

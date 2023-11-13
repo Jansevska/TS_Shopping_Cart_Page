@@ -119,6 +119,7 @@
 }
 
 .form-box-name{
+    margin-top: 20px;
     width: 10%;
     height: 40px;
     padding: 10px;
@@ -130,8 +131,8 @@
     outline: none;
 }
 
-.form-box-age{
-    width: 10%;
+#ageInput{
+    width: 5%;
     height: 40px;
     padding: 10px;
     border-radius: 10px;
@@ -157,8 +158,9 @@
 }
 
 
-#cart{
+.cart-section{
     visibility: hidden;
+    text-align: center;
 }
 
 .product{
